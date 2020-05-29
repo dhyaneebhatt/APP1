@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,10 +23,15 @@ public class MainActivity extends AppCompatActivity {
         //printing a msg that btn pressed!
         Log.d("DHYANEE","You pressed the button!!!");
 
-//        // Get person's name
-//        EditText e = (EditText)findViewById(R.id.nameTextBox);
-//        String n = e.getText().toString();
-//
+       // Get person's name
+        EditText e = (EditText)findViewById(R.id.nameTextBox);
+        String name = e.getText().toString();
 
+        // creating a segue in Android
+        Intent i = new Intent(this, SecondActivity.class);
+        i.putExtra("username", name);
+        i.putExtra("message", "Happy Birthday!!!! xoxo <3");
+
+        startActivity(i);
     }
 }
